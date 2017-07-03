@@ -4,7 +4,7 @@ const url = require('url');
 
 const Datastore = require('nedb');
 
-let db = new Datastore({filename: './datafile.db'});
+let db = new Datastore({filename: './temp/datafile.db'});
 
 
 // Keep a global reference of the window object, if you don't, the window will
