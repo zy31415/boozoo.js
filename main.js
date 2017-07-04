@@ -57,7 +57,7 @@ function createWindow () {
     });
 
     Menu.setApplicationMenu(
-        Menu.buildFromTemplate(require('./src/menu').template)
+        Menu.buildFromTemplate(require('./src/components/menu').template)
     );
 
     db.loadDatabase(function (err) {

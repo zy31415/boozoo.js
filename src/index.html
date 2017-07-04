@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./index.css">
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>BooZoo</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+
+  <div class="container">
+      <h1 class="text-center">BooZoo <small>An electronic book manager</small></h1>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="search" class="col-sm-2 control-label">Search: </label>
+            <div class="col-sm-9">
+                <input type="text" placeholder="Type your search here ..." class="form-control" id="search"> <br>
+            </div>
+        </div>
+    </form>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <tr>
+                <th>Title</th>
+                <th>Authors</th>
+                <th>Year</th>
+                <th>Publisher</th>
+            </tr>
+        </table>
+    </div>
 
     <script>
         const {remote} = require('electron')
@@ -24,8 +44,7 @@
             menu.popup(remote.getCurrentWindow())
         }, false)
     </script>
-
-
+  </div>
 
   </body>
 </html>

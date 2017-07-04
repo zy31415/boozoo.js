@@ -7,19 +7,28 @@ const BrowserWindow = electron.BrowserWindow;
 const path = require('path');
 const url = require('url');
 
+const settings = require('./settings/settings').settings;
+const addBook = require('./addBook/addBook').addBook;
+
 const template = [
     {
         label: 'File',
         submenu: [
             {
                 label: 'Settings ...',
-                click: setDataFile
+                click: settings,
+                accelerator: "Shift+CmdOrCtrl+S"
             }
         ]
     },
     {
         label: 'Edit',
         submenu: [
+            {
+                label: 'Add a book ...',
+                click: addBook,
+                accelerator: "Shift+CmdOrCtrl+A"
+            },
             {role: 'undo'},
             {role: 'redo'},
             {type: 'separator'},
@@ -102,26 +111,3 @@ if (process.platform === 'darwin') {
 }
 
 module.exports.template = template;
-
-function setDataFile (item, focusedWindow) {
-    console.log("Settings..");
-    // require('electron').dialog.showOpenDialog();
-
-    let settings = new BrowserWindow(
-        {
-            parent: focusedWindow,
-            title: "Settings",
-            width: 400,
-            height: 225
-        }
-    );
-
-    settings.loadURL(url.format({
-        pathname: path.join(__dirname, './settings.html'),
-        protocol: 'file:',
-        slashes: true
-    }));
-
-    settings.show();
-
-}

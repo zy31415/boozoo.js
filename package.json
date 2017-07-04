@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "main": "main.js",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "electron": "~1.6.11",
     "nedb": "~1.8.0"
   }
